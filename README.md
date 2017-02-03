@@ -18,7 +18,7 @@ For this game, the user will be able to choose from a series of topics such as m
 + jQuery
 
 ####Approach
-I will set up my phrase categories and the design of the page in HTML and use CSS for styling. I will use images for the body of the hangman. For the game logic, such as determining the winner, detecting a loss, I will use Javascript. jQuery will be used for user interaction, such as when a user inputs a guessing letter, when the letter is correct and appears above its dash, and when a user guesses incorrectly and a part of the man's body appears on th screen. 
+I will set up my phrase categories and the design of the page in HTML and use CSS for styling. I will use images for the body of the hangman. For the game logic, such as determining the winner, detecting a loss, I will use Javascript. jQuery will be used for user interaction, such as when a user inputs a guessing letter, when the letter is correct and appears above its dash, and when a user guesses incorrectly and a part of the man's body appears on the screen. 
 
 ####Stretch Goals
 If I manage to accomplish all of my goals, I will attempt the following:
