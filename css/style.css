@@ -1,0 +1,56 @@
+/*some font:*/
+@import url('https://fonts.googleapis.com/css?family=Barrio');
+/*another font:*/
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+/*another font:*/
+@import url('https://fonts.googleapis.com/css?family=Cedarville+Cursive');
+/*Styling begins:*/
+body {
+  background-color: grey;
+}
+
+h1 {
+  font-size: 55px;
+  font-family: 'Barrio', cursive;
+  text-align: right;
+}
+
+h2, p {
+  font-size: 1.2em;
+  text-align: center;
+  font-family: 'Indie Flower', cursive;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+.button {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  border-style: solid;
+  margin: .5%;
+  border-color: white;
+  font-family: 'Cedarville Cursive', cursive;
+  font-size: 30px;
+}
+
+#movie-line-button {
+  background-color: #477DE2;
+}
+
+#movietvtitle-button {
+  background-color: #49268A;
+}
+
+#movietv-char-button {
+  background-color: #388B55;
+}
+
+#travel-button {
+  background-color: #6C204A;
+}
+
+
+//
