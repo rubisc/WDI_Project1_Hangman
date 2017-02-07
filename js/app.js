@@ -8,21 +8,22 @@ var movieTvTitles = ["Fight Club", "The Matrix", "Titanic", "Jurassic Park", "Jo
 var movieTvChar = ["Batman", "Harvey Specter", "Black Mamba", "Hermione Granger", "Vesper Lynd", "Rory Gilmore", "Tyler Durden", "Katniss Everdeen", "Sheldon Cooper", "Lagertha Lothbrok"]
 // Travel Spots Category
 var travelSpots = ["Taj Mahal", "Chichen Itza", "Great Wall of China", "Colosseum", "Eiffel Tower", "Teotihuacan Pyramids", "Times Square", "Golden Gate Bridge", "Machu Picchu", "The White House"]
+
 // to set up play page:
 function startPlayPage () {
   $('.button').hide()
   $('h2').hide()
   $('p').hide()
   $('#gallows-goes-here').html('<img src="./assets/hangman0.png">')
-  //THIS WON'T WORK! $('#gallows-goes-here').append({
-  //   'input': 'guess-letter',
-  //   'button': 'submit-guess'
-  // })
-
+  //THIS WON'T WORK!:
+  var $guessInput = ('<input>', {id: 'guess-letter'})
+  var $submitButton = ('<button>', {id: 'submit-guess'})
+  $('h2').append($guessInput)
+  $('body').append($submitButton)
 }
 // To randomly select a string from the indicated array:
 function renderMovieLines() {
-  var randomlyPick = movieLines.splice(Math.floor(Math.random() * movieLines.length), 1);
+  var randomlyPick = movieLines.splice(Math.floor(Math.random() * movieLines.length), 1).toString().split('');
   console.log(randomlyPick)
 }
 
@@ -33,7 +34,7 @@ $('#movie-line-button').on('click', function() {
 
 // To randomly select a string from the indicated array:
 function renderMovieTvTitles() {
-  randomlyPick = movieTvTitles.splice(Math.floor(Math.random() * movieTvTitles.length), 1);
+  randomlyPick = movieTvTitles.splice(Math.floor(Math.random() * movieTvTitles.length), 1).toString().split('');
   console.log(randomlyPick)
 }
 
@@ -44,7 +45,7 @@ $('#movietvtitle-button').on('click', function() {
 
 // To randomly select a string from the indicated array:
 function renderMovieTvChar() {
-  randomlyPick = movieTvChar.splice(Math.floor(Math.random() * movieTvChar.length), 1);
+  randomlyPick = movieTvChar.splice(Math.floor(Math.random() * movieTvChar.length), 1).toString().split('');
   console.log(randomlyPick)
 }
 
@@ -55,7 +56,7 @@ $('#movietv-char-button').on('click', function() {
 
 // To randomly select a string from the indicated array:
 function renderTravelSpots() {
-  randomlyPick = travelSpots.splice(Math.floor(Math.random() * travelSpots.length), 1);
+  randomlyPick = travelSpots.splice(Math.floor(Math.random() * travelSpots.length), 1).toString().split('');
   console.log(randomlyPick)
 }
 
