@@ -8,14 +8,14 @@ var movieTvTitles = ["Fight Club", "The Matrix", "Titanic", "Jurassic Park", "Jo
 var movieTvChar = ["Batman", "Harvey Specter", "Black Mamba", "Hermione Granger", "Vesper Lynd", "Rory Gilmore", "Tyler Durden", "Katniss Everdeen", "Sheldon Cooper", "Lagertha Lothbrok"]
 // Travel Spots Category
 var travelSpots = ["Taj Mahal", "Chichen Itza", "Great Wall of China", "Colosseum", "Eiffel Tower", "Teotihuacan Pyramids", "Times Square", "Golden Gate Bridge", "Machu Picchu", "The White House"]
-// In order to randomly pick a one of the phrases from each array (this variable's value is reassigned within each category's function)
+// Used in order to randomly pick a one of the phrases from each array (this variable's value is reassigned within each category's function)
 var randomlyPick = movieLines.splice(Math.floor(Math.random() * movieLines.length), 1);
 
-// To randomly select a movie line:
+// To randomly select a string from the indicated array:
 function renderMovieLines() {
   console.log(randomlyPick)
 }
-// Upon clicking the movie line button, randomly select a phrase and delete buttons:
+// Upon clicking the indicated  button, randomly select a phrase and hide contents of page:
 $('#movie-line-button').on('click', function() {
   renderMovieLines()
   $('.button').hide()
@@ -23,12 +23,13 @@ $('#movie-line-button').on('click', function() {
   $('p').hide()
 })
 //
+// To randomly select a string from the indicated array:
 function renderMovieTvTitles() {
   randomlyPick = movieTvTitles.splice(Math.floor(Math.random() * movieTvTitles.length), 1);
   // console.log(movieTvTitles)
   console.log(randomlyPick)
 }
-
+// Upon clicking the indicated  button, randomly select a phrase and hide contents of page:
 $('#movietvtitle-button').on('click', function() {
   renderMovieTvTitles()
   $('.button').hide()
@@ -36,11 +37,12 @@ $('#movietvtitle-button').on('click', function() {
   $('p').hide()
 })
 //
+// To randomly select a string from the indicated array:
 function renderMovieTvChar() {
   randomlyPick = movieTvChar.splice(Math.floor(Math.random() * movieTvChar.length), 1);
   console.log(randomlyPick)
 }
-
+// Upon clicking the indicated  button, randomly select a phrase and hide contents of page:
 $('#movietv-char-button').on('click', function() {
   renderMovieTvChar()
   $('.button').hide()
@@ -48,17 +50,24 @@ $('#movietv-char-button').on('click', function() {
   $('p').hide()
 })
 //
+// To randomly select a string from the indicated array:
 function renderTravelSpots() {
   randomlyPick = travelSpots.splice(Math.floor(Math.random() * travelSpots.length), 1);
   console.log(randomlyPick)
 }
-
+// Upon clicking the indicated  button, randomly select a phrase and hide contents of page:
 $('#travel-button').on('click', function() {
   renderTravelSpots()
   $('.button').hide()
   $('h2').hide()
   $('p').hide()
 })
+
+
+
+
+
+
 
 
 
