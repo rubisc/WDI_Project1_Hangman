@@ -15,8 +15,19 @@ h1 {
   text-align: right;
 }
 
-#gallows-goes-here {
+.letter-list {
+  list-style-type: none;
+  display: inline;
+}
 
+#guess-side {
+  padding: 2%;
+}
+
+.blank-letters {
+  display: inline;  text-decoration: none;
+  float: left;
+  padding: .5%;
 }
 
 h2, p {
