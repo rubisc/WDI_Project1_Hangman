@@ -9,8 +9,7 @@ var movieTvChar = ["Batman", "Harvey Specter", "Black Mamba", "Hermione Granger"
 // Travel Spots Category
 var travelSpots = ["Taj Mahal", "Chichen Itza", "Great Wall of China", "Colosseum", "Eiffel Tower", "Teotihuacan Pyramids", "Times Square", "Golden Gate Bridge", "Machu Picchu", "The White House"]
 
-//Can I make this global?? but...depends on category.
-// var randomlyPick =
+// var ignoreChar = [" ", ",", "'", "?", "!"]
 
 // to set up play page:
 function startPlayPage () {
@@ -22,40 +21,56 @@ function startPlayPage () {
   var $submitButton = ('<button>')
   $('#guess-side').append('<input><button>Submit Letter</button>')
 }
-
-// To randomly select a string from one of the arrays:
+// to randomly select a phrase from one of the arrays:
 function renderPhrase(phrase) {
-  var randomlyPick = phrase.splice(Math.floor(Math.random() * 10), 1).toString().split('');
+  var randomlyPick = phrase.splice(Math.floor(Math.random() * 10), 1).toString().toUpperCase().split('');
   console.log(randomlyPick)
   var $blankLetters = $('<ul>', {class: 'letter-list'})
-  randomlyPick.forEach(function(letter) {
+  for (var i=0; i < randomlyPick.length; i++) {
+    if (randomlyPick[i] === " ") {
+      var $li = $('<li class="blank-letters"> </li>')
+      $blankLetters.append($li)
+    } else if (randomlyPick[i] === "'") {
+      var $li = $('<li class="blank-letters">\'</li>')
+      $blankLetters.append($li)
+    } else if (randomlyPick[i] === "?") {
+        var $li = $('<li class="blank-letters">?</li>')
+        $blankLetters.append($li)
+    } else if (randomlyPick[i] === "!") {
+        var $li = $('<li class="blank-letters">!</li>')
+        $blankLetters.append($li)
+    } else if (randomlyPick[i] === ",") {
+        var $li = $('<li class="blank-letters">,</li>')
+        $blankLetters.append($li)
+    } else {
     var $li = $('<li class="blank-letters">_</li>')
     $blankLetters.append($li)
-  })
+    }
+  }
   $('body').append($blankLetters)
 }
 
+// starts game after picking category
 $('#movie-line-button').on('click', function() {
   renderPhrase(movieLines)
   startPlayPage()
 })
-// To randomly select a string from the indicated array:
+// starts game after picking category
 $('#movietvtitle-button').on('click', function() {
   renderPhrase(movieTvTitles)
   startPlayPage()
 })
-
-// To randomly select a string from the indicated array:
+// starts game after picking category
 $('#movietv-char-button').on('click', function() {
   renderPhrase(movieTvChar)
   startPlayPage()
 })
-
-// To randomly select a string from the indicated array:
+// starts game after picking category
 $('#travel-button').on('click', function() {
   renderPhrase(travelSpots)
   startPlayPage()
 })
+
 
 
 
