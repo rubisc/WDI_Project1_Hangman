@@ -9,13 +9,25 @@ var movieTvChar = ["Batman", "Harvey Specter", "Black Mamba", "Hermione Granger"
 // Travel Spots Category
 var travelSpots = ["Taj Mahal", "Chichen Itza", "Great Wall of China", "Colosseum", "Eiffel Tower", "Teotihuacan Pyramids", "Times Square", "Golden Gate Bridge", "Machu Picchu", "The White House"]
 
+var hangmanPics = [
+  '<img src="./assets/hangman1.png">',
+  '<img src="./assets/hangman2.png">',
+  '<img src="./assets/hangman3.png">',
+  '<img src="./assets/hangman4.png">',
+  '<img src="./assets/hangman5.png">',
+  '<img src="./assets/hangman6.png">',
+  '<img src="./assets/hangman7.png">',
+  '<img src="./assets/hangman8.png">',
+  '<img src="./assets/hangman9.png">',
+  '<img src="./assets/hangman10.png">',
+  '<img src="./assets/hangman11.png">']
+
 // var ignoreChar = [" ", ",", "'", "?", "!"]
 
-// to randomly select a phrase from one of the arrays:
+// to randomly select a phrase from one of the arrays and then display dashes:
 function renderPhrase(phrase) {
   var randomlyPick = phrase.splice(Math.floor(Math.random() * 10), 1).toString().toUpperCase().split('');
   console.log(randomlyPick)
-  //to display dashes and leave spaces, commas, apostrophes, exclamation and question marks:
   var $blankLetters = $('<ul>', {class: 'letter-list'})
   for (var i=0; i < randomlyPick.length; i++) {
     if (randomlyPick[i] === " ") {
@@ -39,19 +51,25 @@ function renderPhrase(phrase) {
     }
   }
   $('body').append($blankLetters)
-}
-// to set up start page for playing:
-function startPlayPage () {
   $('.button').hide()
   $('h2').hide()
   $('p').hide()
   $('#gallows-goes-here').html('<img src="./assets/hangman0.png">')
   $('#guess-side').append('<input id="guess-slot"><button id="enter-guess">Submit Letter</button>')
   $('#enter-guess').on('click', function() {
+    console.log("Guess entered!")
     var $playerGuess = $('#guess-slot').val().toUpperCase()
-    $('#sample-div').text($playerGuess)
-    })
-  }
+    for (var i=0; i < randomlyPick.length; i++) {
+      if ($playerGuess === randomlyPick[i]) {
+        $('.blank-letters').eq(i).text($playerGuess)
+        console.log($playerGuess)
+      }
+    }
+  })
+}
+// to set up start page for playing:
+function startPlayPage () {
+}
 // category1
 $('#movie-line-button').on('click', function() {
   renderPhrase(movieLines)
