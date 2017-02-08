@@ -24,6 +24,29 @@ var hangmanPics = [
 
 // var ignoreChar = [" ", ",", "'", "?", "!"]
 
+// to set up start page for playing:
+// function startPlayPage () {
+// }
+// category1
+$('#movie-line-button').on('click', function() {
+  renderPhrase(movieLines)
+  // startPlayPage()
+})
+// category2
+$('#movietvtitle-button').on('click', function() {
+  renderPhrase(movieTvTitles)
+  // startPlayPage()
+})
+// category3
+$('#movietv-char-button').on('click', function() {
+  renderPhrase(movieTvChar)
+  // startPlayPage()
+})
+// category4
+$('#travel-button').on('click', function() {
+  renderPhrase(travelSpots)
+  // startPlayPage()
+})
 // to randomly select a phrase from one of the arrays and then display dashes:
 function renderPhrase(phrase) {
   var randomlyPick = phrase.splice(Math.floor(Math.random() * 10), 1).toString().toUpperCase().split('');
@@ -50,6 +73,7 @@ function renderPhrase(phrase) {
     $blankLetters.append($li)
     }
   }
+
   $('body').append($blankLetters)
   $('.button').hide()
   $('h2').hide()
@@ -57,50 +81,19 @@ function renderPhrase(phrase) {
   $('#gallows-goes-here').html('<img src="./assets/hangman0.png">')
   $('#guess-side').append('<input id="guess-slot"><button id="enter-guess">Submit Letter</button>')
   $('#enter-guess').on('click', function() {
-    console.log("Guess entered!")
     var $playerGuess = $('#guess-slot').val().toUpperCase()
     for (var i=0; i < randomlyPick.length; i++) {
       if ($playerGuess === randomlyPick[i]) {
         $('.blank-letters').eq(i).text($playerGuess)
-        console.log($playerGuess)
+        $('#guess-slot').val('')
+        break;
+      } else {
+      // for (var i=O; i < hangmanPics.length; i++) {
+          $('#sample-div').text($playerGuess)
+          $('#guess-slot').val('')
+          $('#gallows-goes-here').html('<img src="./assets/hangman1.png">')
+        // }
       }
     }
   })
 }
-// to set up start page for playing:
-function startPlayPage () {
-}
-// category1
-$('#movie-line-button').on('click', function() {
-  renderPhrase(movieLines)
-  startPlayPage()
-})
-// category2
-$('#movietvtitle-button').on('click', function() {
-  renderPhrase(movieTvTitles)
-  startPlayPage()
-})
-// category3
-$('#movietv-char-button').on('click', function() {
-  renderPhrase(movieTvChar)
-  startPlayPage()
-})
-// category4
-$('#travel-button').on('click', function() {
-  renderPhrase(travelSpots)
-  startPlayPage()
-})
-//player input
-
-
-
-
-
-
-
-
-
-
-
-
-//
