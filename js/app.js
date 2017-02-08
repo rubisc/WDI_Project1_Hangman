@@ -9,8 +9,6 @@ var movieTvChar = ["Batman", "Harvey Specter", "Black Mamba", "Hermione Granger"
 // Travel Spots Category
 var travelSpots = ["Taj Mahal", "Chichen Itza", "Great Wall of China", "Colosseum", "Eiffel Tower", "Teotihuacan Pyramids", "Times Square", "Golden Gate Bridge", "Machu Picchu", "The White House"]
 
-var $playerGuess
-
 // var ignoreChar = [" ", ",", "'", "?", "!"]
 
 // to randomly select a phrase from one of the arrays:
@@ -49,7 +47,11 @@ function startPlayPage () {
   $('p').hide()
   $('#gallows-goes-here').html('<img src="./assets/hangman0.png">')
   $('#guess-side').append('<input id="guess-slot"><button id="enter-guess">Submit Letter</button>')
-}
+  $('#enter-guess').on('click', function() {
+    var $playerGuess = $('#guess-slot').val().toUpperCase()
+    $('#sample-div').text($playerGuess)
+    })
+  }
 // category1
 $('#movie-line-button').on('click', function() {
   renderPhrase(movieLines)
@@ -71,13 +73,7 @@ $('#travel-button').on('click', function() {
   startPlayPage()
 })
 //player input
-$('#enter-guess').on('click', function() {
-  console.log('clicked')
-  console.log($('#guess-slot').val())
-  // var $playerGuess = $('#guess-slot').val()
-  // console.log($playerGuess)
-  // $('#sample-div').append($playerGuess)
-})
+
 
 
 
