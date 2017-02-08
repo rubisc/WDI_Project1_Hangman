@@ -17,14 +17,13 @@ function startPlayPage () {
   $('h2').hide()
   $('p').hide()
   $('#gallows-goes-here').html('<img src="./assets/hangman0.png">')
-  var $guessInput = ('<input>')
-  var $submitButton = ('<button>')
   $('#guess-side').append('<input><button>Submit Letter</button>')
 }
 // to randomly select a phrase from one of the arrays:
 function renderPhrase(phrase) {
   var randomlyPick = phrase.splice(Math.floor(Math.random() * 10), 1).toString().toUpperCase().split('');
   console.log(randomlyPick)
+  //to display dashes and leave spaces, commas, apostrophes, exclamation and question marks:
   var $blankLetters = $('<ul>', {class: 'letter-list'})
   for (var i=0; i < randomlyPick.length; i++) {
     if (randomlyPick[i] === " ") {
@@ -70,7 +69,7 @@ $('#travel-button').on('click', function() {
   renderPhrase(travelSpots)
   startPlayPage()
 })
-
+//player input
 
 
 
