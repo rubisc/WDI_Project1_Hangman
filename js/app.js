@@ -9,16 +9,10 @@ var movieTvChar = ["Batman", "Harvey Specter", "Black Mamba", "Hermione Granger"
 // Travel Spots Category
 var travelSpots = ["Taj Mahal", "Chichen Itza", "Great Wall of China", "Colosseum", "Eiffel Tower", "Teotihuacan Pyramids", "Times Square", "Golden Gate Bridge", "Machu Picchu", "The White House"]
 
+var $playerGuess
+
 // var ignoreChar = [" ", ",", "'", "?", "!"]
 
-// to set up play page:
-function startPlayPage () {
-  $('.button').hide()
-  $('h2').hide()
-  $('p').hide()
-  $('#gallows-goes-here').html('<img src="./assets/hangman0.png">')
-  $('#guess-side').append('<input><button>Submit Letter</button>')
-}
 // to randomly select a phrase from one of the arrays:
 function renderPhrase(phrase) {
   var randomlyPick = phrase.splice(Math.floor(Math.random() * 10), 1).toString().toUpperCase().split('');
@@ -48,30 +42,42 @@ function renderPhrase(phrase) {
   }
   $('body').append($blankLetters)
 }
-
-// starts game after picking category
+// to set up start page for playing:
+function startPlayPage () {
+  $('.button').hide()
+  $('h2').hide()
+  $('p').hide()
+  $('#gallows-goes-here').html('<img src="./assets/hangman0.png">')
+  $('#guess-side').append('<input id="guess-slot"><button id="enter-guess">Submit Letter</button>')
+}
+// category1
 $('#movie-line-button').on('click', function() {
   renderPhrase(movieLines)
   startPlayPage()
 })
-// starts game after picking category
+// category2
 $('#movietvtitle-button').on('click', function() {
   renderPhrase(movieTvTitles)
   startPlayPage()
 })
-// starts game after picking category
+// category3
 $('#movietv-char-button').on('click', function() {
   renderPhrase(movieTvChar)
   startPlayPage()
 })
-// starts game after picking category
+// category4
 $('#travel-button').on('click', function() {
   renderPhrase(travelSpots)
   startPlayPage()
 })
 //player input
-
-
+$('#enter-guess').on('click', function() {
+  console.log('clicked')
+  console.log($('#guess-slot').val())
+  // var $playerGuess = $('#guess-slot').val()
+  // console.log($playerGuess)
+  // $('#sample-div').append($playerGuess)
+})
 
 
 
