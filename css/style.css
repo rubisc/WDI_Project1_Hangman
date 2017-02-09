@@ -7,6 +7,7 @@
 /*Styling begins:*/
 body {
   background-color: grey;
+  text-align: center;
 }
 
 h1 {
@@ -20,6 +21,10 @@ img {
   width: auto;
 }
 
+#gallows-goes-here {
+  text-align: center;
+}
+
 .letter-list {
   list-style-type: none;
   display: inline;
@@ -27,6 +32,7 @@ img {
 
 #guess-side {
   padding: 2%;
+  text-align: center;
 }
 
 .blank-letters {
@@ -57,7 +63,9 @@ h2, p {
 h2 {
   font-size: 2em;
 }
-
+.button-area {
+  text-align: center;
+}
 .button {
   height: 200px;
   width: 200px;
@@ -67,6 +75,7 @@ h2 {
   border-color: white;
   font-family: 'Cedarville Cursive', cursive;
   font-size: 30px;
+
 }
 
 .button:hover {
