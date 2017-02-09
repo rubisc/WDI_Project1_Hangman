@@ -47,27 +47,15 @@ function renderPhrase(phrase) {
   var randomlyPick = phrase.splice(Math.floor(Math.random() * 10), 1).toString().toUpperCase().split('');
   console.log(randomlyPick)
   var $blankLetters = $('<ul>', {class: 'letter-list'})
+  var ignoreChars = [' ', '\'', '?', '!', ','];
   for (var i=0; i < randomlyPick.length; i++) {
-    if (randomlyPick[i] === " ") {
-      var $li = $('<li class="blank-letters"> </li>')
-      $blankLetters.append($li)
-    } else if (randomlyPick[i] === "'") {
-      var $li = $('<li class="blank-letters">\'</li>')
-      $blankLetters.append($li)
-    } else if (randomlyPick[i] === "?") {
-        var $li = $('<li class="blank-letters">?</li>')
-        $blankLetters.append($li)
-    } else if (randomlyPick[i] === "!") {
-        var $li = $('<li class="blank-letters">!</li>')
-        $blankLetters.append($li)
-    } else if (randomlyPick[i] === ",") {
-        var $li = $('<li class="blank-letters">,</li>')
-        $blankLetters.append($li)
-    } else {
-    var $li = $('<li class="blank-letters">_</li>')
-    $blankLetters.append($li)
+    if (ignoreChars.indexOf(randomlyPick[i]) != -1) {
+      $blankLetters.append('<li class="blank-letters">' + randomlyPick[i] + '</li>');
+      continue;
     }
+    $blankLetters.append('<li class="blank-letters">_</li>');
   }
+
 
   $('body').append($blankLetters)
   $('.button').hide()
