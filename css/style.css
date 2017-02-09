@@ -15,6 +15,11 @@ h1 {
   text-align: right;
 }
 
+img {
+  height: 330px;
+  width: auto;
+}
+
 .letter-list {
   list-style-type: none;
   display: inline;
@@ -28,6 +33,19 @@ h1 {
   display: inline;
   text-decoration: none;
   padding: .5%;
+}
+
+#guess-slot {
+  background-color: #988181;
+  padding: .8%;
+  width: 15px;
+}
+
+#enter-guess {
+  font-size: .75em;
+  padding: 1%;
+  cursor: -webkit-grab;
+  margin: .5%;
 }
 
 h2, p {

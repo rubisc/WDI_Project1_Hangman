@@ -1,4 +1,4 @@
-console.log("Connection confirmed!")
+console.log("¡Lista, Rubs!")
 // GLOBAL VARIABLES-STRINGS TO GUESS
 // Movie Lines Category
 var movieLines = ["Say hello to my little friend", "May the force be with you", "Here's looking at you, kid", "Expecto Patronum!", "You can't sit with us", "Bond, James Bond", "I'm the king of the world!", "Why is the rum gone?", "There's no place like home", "Hakuna Matata"]
@@ -93,7 +93,7 @@ function renderPhrase(phrase) {
         setTimeout(function () {
           $('#gallows-goes-here').html('<img src="./assets/loseGif.gif">')
           $('h1').text("Oops, the correct answer was: " + originalPhrase)
-        }, 700)
+        }, 1000)
         $('#guess-slot').hide()
         setTimeout(function () {
           $('#enter-guess').text("Play again")
