@@ -28,7 +28,7 @@ If I manage to accomplish all of my goals, I will attempt the following:
 + Allow the user to determine level off difficulty (easier levels have more body parts, therefore more guesses)
 
 ####Unsolved Problems
-I originally wanted to 
+I originally wanted to include a list of missed guesses for the player to refer to in case he/she forgot what letters they have already guessed incorrectly (so as to not be penalized more than once for the same letter). I also wanted to grant the player the opportunity of guessing the whole phrase, but did not add that feature. The game also does not have multiple levels of difficulty.
 
 ####Installation Instructions
 Clone the repo from Github and open the link of the game in your browser.
