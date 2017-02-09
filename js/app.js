@@ -9,6 +9,8 @@ var movieTvChar = ["Batman", "Harvey Specter", "Black Mamba", "Hermione Granger"
 // Travel Spots Category
 var travelSpots = ["Taj Mahal", "Chichen Itza", "Great Wall of China", "Colosseum", "Eiffel Tower", "Teotihuacan Pyramids", "Times Square", "Golden Gate Bridge", "Machu Picchu", "The White House"]
 
+var currentMisses = 0
+
 var hangmanPics = [
   '<img src="./assets/hangman1.png">',
   '<img src="./assets/hangman2.png">',
@@ -24,28 +26,21 @@ var hangmanPics = [
 
 // var ignoreChar = [" ", ",", "'", "?", "!"]
 
-// to set up start page for playing:
-// function startPlayPage () {
-// }
 // category1
 $('#movie-line-button').on('click', function() {
   renderPhrase(movieLines)
-  // startPlayPage()
 })
 // category2
 $('#movietvtitle-button').on('click', function() {
   renderPhrase(movieTvTitles)
-  // startPlayPage()
 })
 // category3
 $('#movietv-char-button').on('click', function() {
   renderPhrase(movieTvChar)
-  // startPlayPage()
 })
 // category4
 $('#travel-button').on('click', function() {
   renderPhrase(travelSpots)
-  // startPlayPage()
 })
 // to randomly select a phrase from one of the arrays and then display dashes:
 function renderPhrase(phrase) {
@@ -82,18 +77,20 @@ function renderPhrase(phrase) {
   $('#guess-side').append('<input id="guess-slot"><button id="enter-guess">Submit Letter</button>')
   $('#enter-guess').on('click', function() {
     var $playerGuess = $('#guess-slot').val().toUpperCase()
-    for (var i=0; i < randomlyPick.length; i++) {
-      if ($playerGuess === randomlyPick[i]) {
-        $('.blank-letters').eq(i).text($playerGuess)
-        $('#guess-slot').val('')
-        break;
-      } else {
-      // for (var i=O; i < hangmanPics.length; i++) {
-          $('#sample-div').text($playerGuess)
+    if (randomlyPick.includes($playerGuess)) {
+      console.log("correct")
+      for (var i = 0; i < randomlyPick.length; i++) {
+        if (randomlyPick[i] === $playerGuess) {
+          $('.blank-letters').eq(i).text($playerGuess)
           $('#guess-slot').val('')
-          $('#gallows-goes-here').html('<img src="./assets/hangman1.png">')
-        // }
+        }
       }
+    } else {
+      currentMisses++
+      console.log("incorrect")
+      $('#sample-div').text($playerGuess)
+      $('#guess-slot').val('')
+      $('#gallows-goes-here').html(hangmanPics[currentMisses])
     }
   })
 }
