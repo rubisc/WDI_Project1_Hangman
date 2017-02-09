@@ -24,8 +24,6 @@ var hangmanPics = [
   '<img src="./assets/hangman10.png">',
   '<img src="./assets/hangman11.png">']
 
-// var ignoreChar = [" ", ",", "'", "?", "!"]
-
 // category1
 $('#movie-line-button').on('click', function() {
   renderPhrase(movieLines)
@@ -56,7 +54,6 @@ function renderPhrase(phrase) {
     $blankLetters.append('<li class="blank-letters">_</li>');
   }
 
-
   $('body').append($blankLetters)
   $('.button').hide()
   $('h2').hide()
@@ -70,11 +67,24 @@ function renderPhrase(phrase) {
       for (var i = 0; i < randomlyPick.length; i++) {
         if (randomlyPick[i] === $playerGuess) {
           $('.blank-letters').eq(i).text($playerGuess)
+          // win loss function callback
           $('#guess-slot').val('')
         }
       }
+      var completed = 0
+      $('.blank-letters').each(function(i, li) {
+      	if($(li).text() !== '_') {
+      		completed ++
+      	}
+      })
+      if (randomlyPick.length === completed) {
+        alert("You win!")
+      }
     } else {
       currentMisses++
+      if (currentMisses === 10) {
+        alert("You lose!")
+      }
       console.log("incorrect")
       $('#sample-div').text($playerGuess)
       $('#guess-slot').val('')
@@ -82,3 +92,6 @@ function renderPhrase(phrase) {
     }
   })
 }
+
+
+//
