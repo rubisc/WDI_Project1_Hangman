@@ -82,7 +82,9 @@ function renderPhrase(phrase) {
     } else {
       currentMisses++
       if (currentMisses === 10) {
-        alert("You lose! The correct answer was " + originalPhrase)
+        setTimeout(function () {
+          alert("You lose! The correct answer was " + originalPhrase)
+        }, 1000)
       }
       $('#sample-div').text($playerGuess)
       $('#guess-slot').val('')
