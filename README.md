@@ -17,6 +17,7 @@ For this game, the user will be able to choose from a series of topics such as m
 + Javascript
 + jQuery
 
+
 ####Approach
 I will set up my phrase categories and the design of the page in HTML and use CSS for styling. I will use images for the body of the hangman. For the game logic, such as determining the winner, detecting a loss, I will use Javascript. jQuery will be used for user interaction, such as when a user inputs a guessing letter, when the letter is correct and appears above its dash, and when a user guesses incorrectly and a part of the man's body appears on the screen.
 
@@ -25,5 +26,11 @@ If I manage to accomplish all of my goals, I will attempt the following:
 
 + Have the player guess the whole phrase, and not just one letter at a time. If the user guesses the whole phrase incorrectly, then the user will automatically lose and the entire man will be hung!
 + Allow the user to determine level off difficulty (easier levels have more body parts, therefore more guesses)
+
+####Unsolved Problems
+I originally wanted to 
+
+####Installation Instructions
+Clone the repo from Github and open the link of the game in your browser.
 
 ####Link: https://rubisc.github.io/WDI_Project1_Hangman/

@@ -8,9 +8,9 @@ var movieTvTitles = ["Fight Club", "The Matrix", "Titanic", "Jurassic Park", "Jo
 var movieTvChar = ["Batman", "Harvey Specter", "Black Mamba", "Hermione Granger", "Vesper Lynd", "Rory Gilmore", "Tyler Durden", "Katniss Everdeen", "Sheldon Cooper", "Lagertha Lothbrok"]
 // Travel Spots Category
 var travelSpots = ["Taj Mahal", "Chichen Itza", "Great Wall of China", "Colosseum", "Eiffel Tower", "Teotihuacan Pyramids", "Times Square", "Golden Gate Bridge", "Machu Picchu", "The White House"]
-
+//To count missed guesses
 var currentMisses = 0
-
+//Series of hangman photos
 var hangmanPics = [
   '<img src="./assets/hangman1.png">',
   '<img src="./assets/hangman2.png">',
@@ -23,7 +23,6 @@ var hangmanPics = [
   '<img src="./assets/hangman9.png">',
   '<img src="./assets/hangman10.png">',
   '<img src="./assets/hangman11.png">']
-
 // category1
 $('#movie-line-button').on('click', function() {
   renderPhrase(movieLines)
@@ -77,14 +76,31 @@ function renderPhrase(phrase) {
       	}
       })
       if (randomlyPick.length === completed) {
-        alert("You win!")
+        //make it not display a letter in sample div
+        $('h1').text("You win!")
+        $('#gallows-goes-here').html('<img src="./assets/winGif.gif">')
+        $('#guess-slot').hide()
+        setTimeout(function () {
+          $('#enter-guess').text("Play again")
+          $('#enter-guess').click(function() {
+      location.reload();
+  });
+}, 500)
       }
     } else {
       currentMisses++
       if (currentMisses === 10) {
         setTimeout(function () {
-          alert("You lose! The correct answer was " + originalPhrase)
-        }, 1000)
+          $('#gallows-goes-here').html('<img src="./assets/loseGif.gif">')
+          $('h1').text("Oops, the correct answer was: " + originalPhrase)
+        }, 700)
+        $('#guess-slot').hide()
+        setTimeout(function () {
+          $('#enter-guess').text("Play again")
+          $('#enter-guess').click(function() {
+      location.reload();
+      });
+    }, 200)
       }
       $('#sample-div').text($playerGuess)
       $('#guess-slot').val('')
@@ -92,6 +108,8 @@ function renderPhrase(phrase) {
     }
   })
 }
+
+
 
 
 //
