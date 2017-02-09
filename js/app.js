@@ -42,8 +42,8 @@ $('#travel-button').on('click', function() {
 })
 // to randomly select a phrase from one of the arrays and then display dashes:
 function renderPhrase(phrase) {
-  var randomlyPick = phrase.splice(Math.floor(Math.random() * 10), 1).toString().toUpperCase().split('');
-  console.log(randomlyPick)
+  var originalPhrase = phrase.splice(Math.floor(Math.random() * 10), 1).toString()
+  var randomlyPick = originalPhrase.toUpperCase().split('');
   var $blankLetters = $('<ul>', {class: 'letter-list'})
   var ignoreChars = [' ', '\'', '?', '!', ','];
   for (var i=0; i < randomlyPick.length; i++) {
@@ -63,7 +63,6 @@ function renderPhrase(phrase) {
   $('#enter-guess').on('click', function() {
     var $playerGuess = $('#guess-slot').val().toUpperCase()
     if (randomlyPick.includes($playerGuess)) {
-      console.log("correct")
       for (var i = 0; i < randomlyPick.length; i++) {
         if (randomlyPick[i] === $playerGuess) {
           $('.blank-letters').eq(i).text($playerGuess)
@@ -83,9 +82,8 @@ function renderPhrase(phrase) {
     } else {
       currentMisses++
       if (currentMisses === 10) {
-        alert("You lose!")
+        alert("You lose! The correct answer was " + originalPhrase)
       }
-      console.log("incorrect")
       $('#sample-div').text($playerGuess)
       $('#guess-slot').val('')
       $('#gallows-goes-here').html(hangmanPics[currentMisses])
