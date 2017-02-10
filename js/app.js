@@ -82,6 +82,7 @@ function renderPhrase(phrase) {
         $('h1').text("You win!")
         $('#gallows-goes-here').html('<img src="./assets/winGif.gif">')
         $('#guess-slot').hide()
+        $('#sample-div').empty()
         setTimeout(function () {
           $('#enter-guess').text("Play again")
           $('#enter-guess').click(function() {
