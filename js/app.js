@@ -76,7 +76,6 @@ function renderPhrase(phrase) {
       	}
       })
       if (randomlyPick.length === completed) {
-        //make it not display a letter in sample div
         $('h1').text("You win!")
         $('#gallows-goes-here').html('<img src="./assets/winGif.gif">')
         $('#guess-slot').hide()
@@ -102,7 +101,8 @@ function renderPhrase(phrase) {
       });
     }, 200)
       }
-      $('#sample-div').text($playerGuess)
+      var wrongLetters = []
+      $('#sample-div').html('wrongLetters'.push($playerGuess))
       $('#guess-slot').val('')
       $('#gallows-goes-here').html(hangmanPics[currentMisses])
     }
