@@ -8,6 +8,8 @@ var movieTvTitles = ["Fight Club", "The Matrix", "Titanic", "Jurassic Park", "Jo
 var movieTvChar = ["Batman", "Harvey Specter", "Black Mamba", "Hermione Granger", "Vesper Lynd", "Rory Gilmore", "Tyler Durden", "Katniss Everdeen", "Sheldon Cooper", "Lagertha Lothbrok"]
 // Travel Spots Category
 var travelSpots = ["Taj Mahal", "Chichen Itza", "Great Wall of China", "Colosseum", "Eiffel Tower", "Teotihuacan Pyramids", "Times Square", "Golden Gate Bridge", "Machu Picchu", "The White House"]
+//to account for all wrong letters guessed
+var wrongLetters = []
 //To count missed guesses
 var currentMisses = 0
 //Series of hangman photos
@@ -76,6 +78,7 @@ function renderPhrase(phrase) {
       	}
       })
       if (randomlyPick.length === completed) {
+        //make it not display a letter in sample div
         $('h1').text("You win!")
         $('#gallows-goes-here').html('<img src="./assets/winGif.gif">')
         $('#guess-slot').hide()
@@ -101,10 +104,10 @@ function renderPhrase(phrase) {
       });
     }, 200)
       }
-      var wrongLetters = []
-      $('#sample-div').html('wrongLetters'.push($playerGuess))
-      $('#guess-slot').val('')
-      $('#gallows-goes-here').html(hangmanPics[currentMisses])
+        wrongLetters.push($playerGuess)
+        $('#sample-div').html(wrongLetters)
+        $('#guess-slot').val('')
+        $('#gallows-goes-here').html(hangmanPics[currentMisses])
     }
   })
 }

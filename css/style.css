@@ -38,7 +38,7 @@ img {
 .blank-letters {
   display: inline;
   text-decoration: none;
-  padding: .5%;
+  padding: .65%;
 }
 
 #guess-slot {
