@@ -97,6 +97,8 @@ function renderPhrase(phrase) {
           $('h1').text("Oops, the correct answer was: " + originalPhrase)
         }, 1000)
         $('#guess-slot').hide()
+        wrongLetters = []
+        $('#sample-div').empty()
         setTimeout(function () {
           $('#enter-guess').text("Play again")
           $('#enter-guess').click(function() {

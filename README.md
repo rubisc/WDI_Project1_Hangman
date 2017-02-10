@@ -21,6 +21,8 @@ For this game, the user will be able to choose from a series of topics such as m
 ####Approach
 I will set up my phrase categories and the design of the page in HTML and use CSS for styling. I will use images for the body of the hangman. For the game logic, such as determining the winner, detecting a loss, I will use Javascript. jQuery will be used for user interaction, such as when a user inputs a guessing letter, when the letter is correct and appears above its dash, and when a user guesses incorrectly and a part of the man's body appears on the screen.
 
+I began by determining the categories and their respective categories along with a function for the computer to randomly select one for the player to guess. From there, I moved onto 
+
 ####Stretch Goals
 If I manage to accomplish all of my goals, I will attempt the following:
 
@@ -28,7 +30,7 @@ If I manage to accomplish all of my goals, I will attempt the following:
 + Allow the user to determine level off difficulty (easier levels have more body parts, therefore more guesses)
 
 ####Unsolved Problems
-I originally wanted to grant the player the opportunity of guessing the whole phrase, but did not add that feature. The game also does not have multiple levels of difficulty.
+I originally wanted to grant the player the opportunity of guessing the whole phrase, but did not add that feature. The game also does not have multiple levels of difficulty. With time, I would like to clean up my code so that it is more efficient with callback functions, and therefore more maintainable. I would like to attach a gif or image to every answer so that the player may view it upon winning or losing.
 
 ####Installation Instructions
 + Clone the repo from Github 
