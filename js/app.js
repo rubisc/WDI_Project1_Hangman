@@ -24,7 +24,8 @@ var hangmanPics = [
   '<img src="./assets/hangman8.png">',
   '<img src="./assets/hangman9.png">',
   '<img src="./assets/hangman10.png">',
-  '<img src="./assets/hangman11.png">']
+  '<img src="./assets/hangman11.png">'
+]
 // category1
 $('#movie-line-button').on('click', function() {
   renderPhrase(movieLines)
@@ -45,9 +46,11 @@ $('#travel-button').on('click', function() {
 function renderPhrase(phrase) {
   var originalPhrase = phrase.splice(Math.floor(Math.random() * 10), 1).toString()
   var randomlyPick = originalPhrase.toUpperCase().split('');
-  var $blankLetters = $('<ul>', {class: 'letter-list'})
+  var $blankLetters = $('<ul>', {
+    class: 'letter-list'
+  })
   var ignoreChars = [' ', '\'', '?', '!', ','];
-  for (var i=0; i < randomlyPick.length; i++) {
+  for (var i = 0; i < randomlyPick.length; i++) {
     if (ignoreChars.indexOf(randomlyPick[i]) != -1) {
       $blankLetters.append('<li class="blank-letters">' + randomlyPick[i] + '</li>');
       continue;
@@ -71,46 +74,50 @@ function renderPhrase(phrase) {
           $('#guess-slot').val('')
         }
       }
+      //to keep track of the letters that have already been correctly guessed or do not need to be because they are punctuation characters
       var completed = 0
       $('.blank-letters').each(function(i, li) {
-      	if($(li).text() !== '_') {
-      		completed ++
-      	}
+        if ($(li).text() !== '_') {
+          completed++
+        }
       })
+      //if all index values of phrase are completed then we know the person won
       if (randomlyPick.length === completed) {
         //make it not display a letter in sample div
         $('h1').text("You win!")
         $('#gallows-goes-here').html('<img src="./assets/winGif.gif">')
         $('#guess-slot').hide()
         $('#sample-div').empty()
-        setTimeout(function () {
+        setTimeout(function() {
           $('#enter-guess').text("Play again")
           $('#enter-guess').click(function() {
-      location.reload();
-  });
-}, 500)
+            location.reload();
+          });
+        }, 500)
       }
+      //otherwise lose logic follows
     } else {
       currentMisses++
       if (currentMisses === 10) {
-        setTimeout(function () {
+        setTimeout(function() {
           $('#gallows-goes-here').html('<img src="./assets/loseGif.gif">')
           $('h1').text("Oops, the correct answer was: " + originalPhrase)
         }, 1000)
         $('#guess-slot').hide()
         wrongLetters = []
         $('#sample-div').empty()
-        setTimeout(function () {
+        setTimeout(function() {
           $('#enter-guess').text("Play again")
           $('#enter-guess').click(function() {
-      location.reload();
-      });
-    }, 200)
+            location.reload();
+          });
+        }, 200)
       }
-        wrongLetters.push($playerGuess)
-        $('#sample-div').html(wrongLetters)
-        $('#guess-slot').val('')
-        $('#gallows-goes-here').html(hangmanPics[currentMisses])
+      //to display list of missed letters that player guessed
+      wrongLetters.push($playerGuess)
+      $('#sample-div').html(wrongLetters)
+      $('#guess-slot').val('')
+      $('#gallows-goes-here').html(hangmanPics[currentMisses])
     }
   })
 }
