@@ -4,7 +4,7 @@
 For this game, the user will be able to choose from a series of topics such as movies, music, food, etc. These topics will serve as clues for the phrases that the player is meant to guess. The player must choose one letter a time only--even if he/she already knows what the whole phrase is. If the player does not guess the phrase before the man's body is completely hung, the player loses and will be prompted with a message that will allow him/her to try again and pick from one of the categories.
 
 ####A Visual - Wireframes
-![Wireframe1](./assets/Hangman_Wireframe1.jpg?raw=true)
+![Wireframe1](./assets/Hangman_Wireframe1.jpg)
 ![Wireframe2](./assets/Hangman_Wireframe2.jpg)
 ![Wireframe3](./assets/Hangman_Wireframe3.jpg)
 ![Wireframe4](./assets/Hangman_Wireframe4.jpg)
